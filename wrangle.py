@@ -7,7 +7,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import r2_score, mean_squared_error
 from sklearn.model_selection import train_test_split
-from lazypredict.Supervised import LazyClassifier, LazyRegressor
 from sklearn.preprocessing import StandardScaler,MinMaxScaler
 
 
@@ -213,52 +212,6 @@ def convert_to_object(df, columns):
 
 
 
-def run_lazy_classifier(data, target_column):
-    """
-    Runs LazyClassifier on a given DataFrame.
-
-    Args:
-    data (pandas.DataFrame): The input DataFrame containing the features and target.
-    target_column (str): The name of the target column in the DataFrame.
-
-    Returns:
-    None
-    """
-    # Split the data into training and test sets
-    X = data.drop(target_column, axis=1)
-    y = data[target_column]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-
-    # Create a LazyClassifier object and fit it to the data
-    clf = LazyClassifier(verbose=0, ignore_warnings=True, custom_metric=None)
-    models, predictions = clf.fit(X_train, X_test, y_train, y_test)
-
-    # Print the model performance summary
-    print(models)
-
-    
-def run_lazy_regressor(data, target_column):
-    """
-    Runs LazyRegressor on a given DataFrame.
-
-    Args:
-    data (pandas.DataFrame): The input DataFrame containing the features and target.
-    target_column (str): The name of the target column in the DataFrame.
-
-    Returns:
-    None
-    """
-    # Split the data into training and test sets
-    X = data.drop(target_column, axis=1)
-    y = data[target_column]
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
-
-    # Create a LazyRegressor object and fit it to the data
-    reg = LazyRegressor(verbose=0, ignore_warnings=True, custom_metric=None)
-    models, predictions = reg.fit(X_train, X_test, y_train, y_test)
-
-    # Print the model performance summary
-    print(models)
     
     
 #**************************************************Distributions*******************************************************
