@@ -68,7 +68,9 @@ numpy
 scikit-learn
 seaborn
 matplotlib
-
+*important* you will need to install lazy predict to have file run cleanly, you can run the following the cli
+pip install lazypredict
+here is a link to lazypredict's documentation: https://pypi.org/project/lazypredict/
 # Recreation
 
 To recreate, clone the repo and run final_report.ipynb sequentially.
